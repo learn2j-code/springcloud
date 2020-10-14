@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  
 import cn.how2j.springcloud.pojo.Product;
  
-@FeignClient(value = "productDataService")
+@FeignClient(value = "productDataService",fallback = ProductClientFeignHystrix.class)
 public interface ProductClientFeign {
  
     @GetMapping("/products")
